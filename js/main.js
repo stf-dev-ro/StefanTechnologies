@@ -1,3 +1,6 @@
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    alert("Mobile Device Detected. The site might not have full functionality in Mobile mode");
+}
 // Translation system
 import { english } from "./lang/english.js";
 import { romanian } from "./lang/romanian.js";
