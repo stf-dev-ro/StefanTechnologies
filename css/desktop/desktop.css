@@ -1,0 +1,128 @@
+@media screen and (min-width: 1361px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    nav {
+        display: flex;
+        background-color: rgb(36, 36, 36);
+        height: 100px;
+        width: 100vw;
+    }
+
+    .navbar-center-allign {
+        padding-top: 30px;
+        padding-left: 50px;
+        font-weight: 500;
+        font-size: 30px;
+    }
+
+    #stefanTechnologiesLogo {
+        transition: all 0.2s ease-in-out;
+    }
+
+    #stefanTechnologiesLogo:hover {
+        cursor: pointer;
+        transform: scale(1.09);
+    }
+
+    #languageButtons {
+        display: flex;
+        position: absolute;
+        right: 0;
+        margin-right: 10px;
+    }
+
+    .languageButtonsProperties {
+        padding: 5px;
+        margin: 2px;
+        border: 1px solid white;
+        height: 37px;
+        margin-top: -35px;
+        transition: 0.2s all ease-in-out;
+    }
+
+    .languageButtonsProperties:hover {
+        color: black;
+        background-color: white;
+        cursor: pointer;
+    }
+
+    #navButtonsDiv {
+        display: flex;
+        margin-left: 100px;
+    }
+
+    .center-2 {
+        margin-top: 39px;
+        margin-left: 10px;
+    }
+
+    .navButton {
+        height: 20px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .navButton:hover {
+        color: gray;
+    }
+
+    #languageSelectorDiv {
+        display: none;
+    }
+
+    #menuButton {
+        display: none;
+        visibility: hidden;
+    }
+
+    #serverTechnologies {
+        display: flex;
+        font-weight: 500;
+        margin-top: 5vh;
+        margin-left: 10vw;
+    }
+
+    main {
+        overflow-x: hidden;
+    }
+
+    .TechShowcase {
+        display: flex;
+        margin-top: 30px;
+        margin-left: 11vw;
+        height: 660px;
+        width: 340px;
+        margin-bottom: 30px;
+    }
+
+    .TechShowcaseTitle {
+        font-weight: 500;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .TechShowcaseVersion {
+        margin: 0;
+        margin-top: 10px;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    hr {
+        width: 75%;
+    }
+
+    .paragraphs p {
+        font-weight: 300;
+        padding: 10px;
+        margin: 0px;
+    }
+
+    #serverTechNologiesStyles {
+        margin-right: 100px;
+
+    }
+
+}

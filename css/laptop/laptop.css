@@ -1,0 +1,101 @@
+@media screen and (min-width: 768px) and (max-width: 1359px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    nav {
+        display: block;
+        overflow: hidden;
+        background-color: rgb(36, 36, 36);
+        height: 110px;
+        width: 100vw;
+    }
+
+    #stefanTechnologiesLogo {
+        padding-top: 10px;
+        transition: all 0.2s ease-in-out;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    #stefanTechnologiesLogo:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+    }
+
+    #menu {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    #languageButtons {
+        display: none;
+    }
+
+    #languageSelectorDiv {
+        margin-top: 10px;
+    }
+
+    #menuButton {
+        display: none;
+    }
+
+    .navButton {
+        font-weight: 300;
+        margin-left: 2px;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .navButton:hover {
+        color: gray;
+    }
+
+    .TechShowcase {
+        display: flex;
+        
+        margin-top: 30px;
+        margin-left: 11vw;
+        height: 660px;
+        width: 340px;
+        margin-bottom: 30px;
+    }
+
+    .TechShowcaseTitle {
+        font-weight: 500;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .TechShowcaseVersion {
+        margin: 0;
+        margin-top: 10px;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    hr {
+        width: 75%;
+    }
+
+    .paragraphs p {
+        font-weight: 300;
+        padding: 10px;
+        margin: 0px;
+    }
+
+    #serverTechNologiesStyles {
+        margin-right: 100px;   
+    }
+
+    .laptopStyle {
+        display: block;
+    }
+
+    #serverTechnologies {
+        font-weight: 500;
+        margin-top: 20px;
+        margin-left: 40px;
+    }
+}

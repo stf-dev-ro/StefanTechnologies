@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,900;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/general.css">
+    <title>STEFAN TECHNOLOGIES</title>
+
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" href="../css/desktop/desktop.css">
+    <link rel="stylesheet" href="../css/laptop/laptop.css">
+    <link rel="stylesheet" href="../css/mobile/mobile.css">
+
+    <!-- Special StyleSheets -->
+    <link rel="stylesheet" href="../css/animation.css">
+</head>
+
+<nav id="nav">
+    <h1 id="stefanTechnologiesLogo" class="navbar-center-allign">STEFAN TECHNOLOGIES</h1>
+    <h1 id="menuButton">☰</h1>
+    <div id="menu">
+        <div id="navButtonsDiv">
+            <a onclick="" target="" href="#webTechnologies" class="center-2 navButton" id="viewSoftware">View
+                Software</a>
+            <a onclick="" target="_blank" href="https://www.tiktok.com/@stf.dev" class="center-2 navButton"
+                id="social">Social</a>
+            <a onclick="" target="_blank" href="https://github.com/stf-dev-ro" class="center-2 navButton">GitHub</a>
+        </div>
+        <div id="languageButtons">
+            <h1 class="navbar-center-allign languageButtonsProperties" id="enTranslateButton">EN</h1>
+            <h1 class="navbar-center-allign languageButtonsProperties" id="roTranslateButton">RO</h1>
+        </div>
+        <div id="languageSelectorDiv">
+            <select id="languageSelector">
+                <option value="en">English</option>
+                <option value="ro">Română</option>
+            </select>
+        </div>
+    </div>
+</nav>
+
+<body>
+    <main id="body">
+        <div id="webTechnologies">
+            <h1 id="serverTechnologies">Apps and Technologies</h1>
+            <div id="serverTechNologiesStyles"></div>
+            <div class="TechShowcase">
+                <!-- Web Server -->
+                <div style="border: 1px solid gray; margin-right: 20px;">
+                    <h1 class="TechShowcaseTitle" id="webServerTitle">Local Web Server</h1>
+                    <p class="TechShowcaseVersion" id="firstItemVersion_">Version 1.0</p>
+                    <hr>
+                    <div class="paragraphs">
+                        <p id="p1">It is the most efficient web server ever made.
+                            It doesn't use more than 19MB of RAM. Built with
+                            JavaScript (Node.js and Express framework).
+                        </p>
+                        <p id="p2">
+                            Do not waste your time with other web servers,
+                            this one does everything you would ever want.
+                        </p>
+                        <p id="p3">
+                            It is so simple and it can be easily customised.
+                        </p>
+                        <p id="p4">
+                            By using a combination of JavaScript and C++, I
+                            have made the perfect web server. It can be launched
+                            using the included .exe file.
+                        </p>
+                        <p id="NOTE:_">
+                            NOTE:
+                        </p>
+                        <p id="p5">
+                            It does require having Node.js installed globally
+                            on the machine.
+                        </p>
+                        <div style="display: flex;">
+                            <button id="github_serverapp">GitHub</button>
+                            <button id="downloadServerButton">Download</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Future plans -->
+                <div class="mobileStyle" style="border: 1px solid gray; margin-right: 20px;">
+                    <h1 class="TechShowcaseTitle" id="comingSoon1">Coming Soon</h1>
+                    <p class="TechShowcaseVersion" id="version1.0_comingSoon">Version 1.0</p>
+                    <hr>
+                    <div class="paragraphs">
+                        <p id="comingReallySoon__">Coming Soon</p>
+                        <div style="display: flex; visibility: hidden;">
+                            <button>GitHub</button>
+                            <button id="downloadBtn2">Download</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Future Plans -->
+                <div class="laptopStyle mobileStyle" style="border: 1px solid gray; margin-right: 20px;">
+                    <h1 class="TechShowcaseTitle" id="comingSoon2">Coming Soon</h1>
+                    <p class="TechShowcaseVersion" id="version1.0_comingSoon2">Version 1.0</p>
+                    <hr>
+                    <div class="paragraphs">
+                        <p id="ComingReallySoon__2">Coming Soon</p>
+                        <div style="display: flex; visibility: hidden;">
+                            <button>GitHub</button>
+                            <button id="downloadBtn3">Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <div id="loadingScreen_">
+        <div class="spinner"></div>
+    </div>
+    <script src="../js/main.js" type="module"></script>
+</body>
+
+
+</html>

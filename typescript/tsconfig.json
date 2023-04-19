@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "../js",
+    "target": "es6",
+    "module": "es6",
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
+    "removeComments": false
+  },
+
+  "files": [
+    "./main.ts",
+    "./data/pageElements.ts",
+    "./lang/english.ts",
+    "./lang/romanian.ts",
+  ]
+}
