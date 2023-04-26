@@ -1,39 +1,37 @@
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    alert("Mobile Device Detected. The site might not have full functionality in Mobile mode");
-}
 // Translation system
 import { english } from "./lang/english.js";
 import { romanian } from "./lang/romanian.js";
 import { siteElement } from "./data/pageElements.js";
 class TranslationSystem {
-    constructor(i = 0, i1 = 0, htmlElement) {
+    constructor(i = 0, i1 = 0, htmlElement, selectedLanguage, initialLanguage) {
         this.i = i;
         this.i1 = i1;
         this.htmlElement = htmlElement;
+        this.selectedLanguage = selectedLanguage;
+        this.initialLanguage = initialLanguage;
     }
-    translate(lang) {
-        if (lang === english) {
-            this.translateEnglish();
+    translate(language) {
+        localStorage.setItem('initialLanguage', language);
+        this.i1 = 12;
+        if (language === 'English') {
+            this.selectedLanguage = english;
         }
         else {
-            this.translateRomanian();
+            this.selectedLanguage = romanian;
         }
-    }
-    translateEnglish() {
-        this.i1 = 12;
-        for (this.i = 0; this.i < english.length - 3; this.i++) {
+        for (this.i = 0; this.i < this.selectedLanguage.length - 3; this.i++) {
             // This loop functions until it becomes 11
-            document.getElementById(siteElement[this.i]).innerHTML = english[this.i];
+            document.getElementById(siteElement[this.i]).innerHTML = this.selectedLanguage[this.i];
             if (this.i === 11) { // once i reaches 11, it will execute
                 // this will replace the second card
                 for (this.i = 12; this.i < 15; this.i++) {
-                    document.getElementById(siteElement[this.i1]).innerHTML = english[this.i];
+                    document.getElementById(siteElement[this.i1]).innerHTML = this.selectedLanguage[this.i];
                     this.i1 = this.i1 + 1;
                     if (this.i === 14) { // once i reaches 14, it will execute
                         this.i1 = 15;
                         // this will replace the third card
                         for (this.i = 12; this.i < 15; this.i++) {
-                            document.getElementById(siteElement[this.i1]).innerHTML = english[this.i];
+                            document.getElementById(siteElement[this.i1]).innerHTML = this.selectedLanguage[this.i];
                             this.i1 = this.i1 + 1;
                         }
                     }
@@ -41,38 +39,29 @@ class TranslationSystem {
             }
         }
     }
-    translateRomanian() {
-        this.i1 = 12;
-        for (this.i = 0; this.i < romanian.length - 3; this.i++) {
-            // This loop functions until it becomes 11
-            document.getElementById(siteElement[this.i]).innerHTML = romanian[this.i];
-            if (this.i === 11) { // once i reaches 11, it will execute
-                // this will replace the second card
-                for (this.i = 12; this.i < 15; this.i++) {
-                    document.getElementById(siteElement[this.i1]).innerHTML = romanian[this.i];
-                    this.i1 = this.i1 + 1;
-                    if (this.i === 14) { // once i reaches 14, it will execute
-                        this.i1 = 15;
-                        // this will replace the third card
-                        for (this.i = 12; this.i < 15; this.i++) {
-                            document.getElementById(siteElement[this.i1]).innerHTML = romanian[this.i];
-                            this.i1 = this.i1 + 1;
-                        }
-                    }
-                }
-            }
+    initialLanguageSet() {
+        if (localStorage.getItem('initialLanguage') === null) {
+            localStorage.setItem('initialLanguage', 'English');
         }
+        else if (localStorage.getItem('initialLanguage') === 'English') {
+            this.translate('English');
+        }
+        else {
+            this.translate('Romanian');
+        }
+        console.log('Initial site language set to: ' + localStorage.getItem('initialLanguage') + '\n Happy browsing');
     }
 }
-const translateClass = new TranslationSystem(0, 0, []);
+const translateClass = new TranslationSystem(0, 0, [], [], '');
+translateClass.initialLanguageSet();
 // Translate buttons
 document.getElementById('enTranslateButton').addEventListener('click', () => {
     navbar.loadingScreen();
-    translateClass.translate(english);
+    translateClass.translate('English');
 });
 document.getElementById('roTranslateButton').addEventListener('click', () => {
     navbar.loadingScreen();
-    translateClass.translate(romanian);
+    translateClass.translate('Romanian');
 });
 // General Site Functions
 // General Site Button Logic
@@ -130,14 +119,25 @@ class navbarLogic {
     }
     ChangeLaptopLanguage(language) {
         if (language === 'en') {
-            translateClass.translateEnglish();
+            translateClass.translate('English');
         }
         else {
-            translateClass.translateRomanian();
+            translateClass.translate('Romanian');
         }
     }
 }
 const navbar = new navbarLogic();
+// Mobile warning menu
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    navbar.loadingScreenDiv.style.display = 'flex';
+    navbar.navbar.style.display = 'none';
+    navbar.body.style.display = 'none';
+    alert("Mobile Device Detected. The site might not have full functionality in Mobile mode");
+    navbar.navbar.style.display = 'flex';
+    navbar.body.style.display = 'block';
+    navbar.loadingScreenDiv.style.display = 'none';
+}
+// Site Functions 
 const showMenu = $('menuButton');
 showMenu.addEventListener('click', () => {
     navbar.menuButtonClick();
@@ -148,12 +148,25 @@ viewSoftwareButton.addEventListener('click', () => {
         navbar.menuButtonClick();
     }
 });
-const laptopLangSelector = $('languageSelector');
-laptopLangSelector.addEventListener('click', () => {
-    if (laptopLangSelector.value === 'en') {
-        translateClass.translateEnglish();
+const laptopLangSelector = new Promise((res, err) => {
+    let select = $('languageSelector');
+    select.addEventListener('click', () => {
+        if (select.value === 'en') {
+            translateClass.translate('English');
+            res(localStorage.getItem('initialLanguage'));
+        }
+        else {
+            translateClass.translate('Romanian');
+            res(localStorage.getItem('initialLanguage'));
+        }
+    });
+})
+    .then((res) => {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        alert(`If the site isn't translated, please press on the language selector once after changing the language \n\nDacă site-ul nu s-a tradus, vă rugăm să apăsați inca o dată pe selectorul de limbă după ce schimbați limba`);
     }
-    else {
-        translateClass.translateRomanian();
-    }
+    throw res;
+})
+    .catch((err) => {
+    throw err;
 });
